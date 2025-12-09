@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Портфолио студента</title>
+
+<!-- Подключаем красивый шрифт -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+    }
+
+    body{
+        background: #000;
+        color: #fff;
+    }
+
+    /* --- HEADER --- */
+    header{
+        background: #111;
+        color: yellow;
+        text-align: center;
+        padding: 25px;
+        box-shadow: 0 0 15px yellow;
+        transition: 0.3s;
+    }
+
+    header h1{
+        text-shadow: 0 0 15px yellow;
+        font-size: 32px;
+    }
+
+    header nav ul{
+        list-style: none;
+        display: flex;
+        justify-content: center;
+        gap: 25px;
+        margin-top: 15px;
+    }
+
+    header nav ul li a{
+        color: yellow;
+        text-decoration: none;
+        font-weight: 600;
+        transition: 0.3s;
+    }
+
+    header nav ul li a:hover{
+        text-shadow: 0 0 12px yellow;
+    }
+
+    /* --- ABOUT --- */
+    .about{
+        display: flex;
+        gap: 25px;
+        padding: 40px;
+        align-items: center;
+    }
+
+    .about img{
+        width: 160px;
+        height: 160px;
+        border-radius: 50%;
+        box-shadow: 0 0 15px yellow;
+    }
+
+    .about p{
+        font-size: 18px;
+    }
+
+    /* --- PROJECTS --- */
+    .projects{
+        padding: 50px;
+        text-align: center;
+    }
+
+    .projects h2{
+        color: yellow;
+        text-shadow: 0 0 10px yellow;
+    }
+
+    .project-cards{
+        display: flex;
+        justify-content: center;
+        gap: 25px;
+        flex-wrap: wrap;
+        margin-top: 25px;
+    }
+
+    .card{
+        width: 260px;
+        padding: 20px;
+        background: #111;
+        border-radius: 10px;
+        box-shadow: 0 0 15px yellow;
+        transition: 0.3s;
+        opacity: 0;
+        transform: translateY(40px);
+    }
+
+    .card h3{
+        color: yellow;
+        text-shadow: 0 0 10px yellow;
+    }
+
+    .card:hover{
+        transform: translateY(-5px) scale(1.05);
+        box-shadow: 0 0 25px yellow;
+    }
+
+    button{
+        background: yellow;
+        color: black;
+        padding: 10px 15px;
+        border: none;
+        border-radius: 6px;
+        margin-top: 10px;
+        cursor: pointer;
+        font-weight: 600;
+        transition: 0.3s;
+    }
+
+    button:hover{
+        box-shadow: 0 0 15px yellow;
+    }
+
+    /* --- CONTACT --- */
+    .contact{
+        text-align: center;
+        padding: 40px;
+    }
+
+    .contact h2{
+        color: yellow;
+        text-shadow: 0 0 10px yellow;
+    }
+
+    /* --- FOOTER --- */
+    footer{
+        background: #111;
+        text-align: center;
+        padding: 20px;
+        box-shadow: 0 0 10px yellow;
+        color: yellow;
+    }
+
+    /* Адаптация */
+    @media(max-width: 768px){
+        .about{
+            flex-direction: column;
+            text-align: center;
+        }
+    }
+</style>
+
+<script>
+// Изменение тени шапки при прокрутке
+window.addEventListener("scroll", () => {
+    let header = document.querySelector("header");
+    header.style.boxShadow = window.scrollY > 50 ? "0 0 25px yellow" : "0 0 15px yellow";
+});
+
+// Анимация появления карточек
+document.addEventListener("scroll", () => {
+    document.querySelectorAll(".card").forEach(card => {
+        let rect = card.getBoundingClientRect().top;
+        if(rect < window.innerHeight - 100){
+            card.style.opacity = "1";
+            card.style.transform = "translateY(0)";
+        }
+    });
+});
+</script>
+
+</head>
+<body>
+
+<header>
+    <h1>Портфолио Студента</h1>
+    <nav>
+        <ul>
+            <li><a href="#about">О себе</a></li>
+            <li><a href="#projects">Проекты</a></li>
+            <li><a href="#contact">Контакты</a></li>
+        </ul>
+    </nav>
+</header>
+
+<section id="about" class="about">
+    <img src="Alisher.jpg" alt="фото студента">
+    <div>
+        <p>Я студент, изучаю веб-дизайн и работаю программистом.</p>
+    </div>
+</section>
+
+<section id="projects" class="projects">
+    <h2>Мои проекты</h2>
+
+    <div class="project-cards">
+        
+        <div class="card">
+            <h3>Проект 1</h3>
+            <video width="220" controls>
+                <source src="565.mp4" type="video/mp4">
+            </video>
+            <p>Использованы HTML и CSS.</p>
+            <button>Подробнее</button>
+        </div>
+
+        <div class="card">
+            <h3>Проект 2</h3>
+            <video width="220" controls>
+                <source src="565.mp4" type="video/mp4">
+            </video>
+            <p>Использован JavaScript.</p>
+            <a href="https://www.instagram.com/_alisher_exe"><button>Подробнее</button></a>
+        </div>
+
+        <div class="card">
+            <h3>Проект 3</h3>
+            <video width="220" controls>
+                <source src="565.mp4" type="video/mp4">
+            </video>
+            <p>Адаптивный сайт на Flex и Grid.</p>
+            <button>Подробнее</button>
+        </div>
+
+    </div>
+</section>
+
+<section id="contact" class="contact">
+    <h2>Контакты</h2>
+    <p>Email: aalalisher.l2@gmail.com</p>
+    <p>Телефон: +992 87 435 20 00</p>
+    <p><a href="https://www.instagram.com/_alisher_exe"><button>instagram</button></a> </p>
+</section>
+
+
+<footer>
+    <p>2025 · Портфолио Студента</p>
+</footer>
+
+</body>
+</html>
